@@ -237,7 +237,7 @@ Contributions are welcome.
 ## 📄 License
 
 ```bash
-MIT License
+GNU License
 Free to use for personal and commercial projects.
 ```
 
