@@ -1,0 +1,38 @@
+services:
+    api-gateway:
+        build:
+            context: ..
+            dockerfile: Dockerfile
+        command: node dist/apps/api-gateway/main.js
+        ports:
+            - "5001:5001"
+        env_file:
+            - ../env/.env.docker
+        depends_on:
+            - auth-service
+            - service-a
+            - service-b
+
+    auth-service:
+        build:
+            context: ..
+            dockerfile: Dockerfile
+        command: node dist/apps/auth-service/main.js
+        env_file:
+            - ../env/.env.docker
+
+    service-a:
+        build:
+            context: ..
+            dockerfile: Dockerfile
+        command: node dist/apps/service-a/main.js
+        env_file:
+            - ../env/.env.docker
+
+    service-b:
+        build:
+            context: ..
+            dockerfile: Dockerfile
+        command: node dist/apps/service-b/main.js
+        env_file:
+            - ../env/.env.docker
